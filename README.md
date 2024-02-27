@@ -1,4 +1,4 @@
-# QuestionAI: a QA & Summarization Tool built with LangChain
+# GeminiQA: Document QA / Summarization with Streamlit and LangChain
 ![banner](./media/banner.png)
 This application is your perfect first example to use LangChain framework and it's also intuitively designed to supercharge your content consumption. Whether you need instant answers from your personal PDFs, a summarized version of long articles, or the powerful assistance of a Google Search tool, this LangChain Agent powered app is your go-to tool.
 
@@ -15,15 +15,16 @@ This application is your perfect first example to use LangChain framework and it
 ### Installation
 - Clone this repository:
 
-      git clone https://github.com/Azzedde/QuestionAI.git
+      git clone https://github.com/AmeerArsala/GeminiQA.git
 
 - Navigate to the project directory:
 
-      cd LangChainAgent
+      cd GeminiQA
 
-- Install the required Python packages:
+- Create conda/mamba/micromamba environment and Install required packages:
+      conda create -f environment.yml
 
-      pip install -r requirements.txt
+- Create a `.env` file with your `GOOGLE_API_KEY` (for Gemini) and your `SERPAPI_API_KEY` (for Google searches)
 
 ### Running the Application
 
@@ -64,6 +65,6 @@ If you want to discuss you can find me here:
 ![X](https://twitter.com/azzedine_idir)
 ![email](mailto:ja_aitsaid@esi.dz)
 
-Project Link: https://github.com/Azzedde/QuestionAI
+Original Project Link: https://github.com/Azzedde/QuestionAI
 
 

@@ -1,0 +1,15 @@
+name: gemini_qa
+channels:
+- conda-forge
+- pytorch
+dependencies:
+  - python=3.10
+  - python-dotenv
+  - faiss-gpu
+  - pip:
+    - streamlit
+    - streamlit_extras
+    - PyPDF2
+    - google-generativeai
+    - langchain
+    - langchain_google_genai

@@ -3,7 +3,10 @@ from dotenv import load_dotenv
 from langchain.agents import load_tools
 from langchain.agents import initialize_agent
 from langchain.agents import AgentType
-from langchain.llms import OpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI #from langchain.llms import OpenAI
+from lib.constants import TEMPERATURE
+
+
 load_dotenv()
 
 st.set_page_config(page_title="Google Search Synthesis", page_icon="🔍")
@@ -23,7 +26,7 @@ def main():
     st.header("Google Search Synthesis 🔍")
     query = st.text_input("Enter your query here")
     if query != "":
-        llm = OpenAI(temperature=0)
+        llm = ChatGoogleGenerativeAI(model="gemini-pro",temperature=TEMPERATURE) #OpenAI(temperature=0)
         tools = load_tools(["serpapi", "llm-math"], llm=llm)
         agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
         response = agent.run(query)

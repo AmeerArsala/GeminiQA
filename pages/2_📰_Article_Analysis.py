@@ -1,10 +1,11 @@
 import streamlit as st 
 from langchain.docstore.document import Document
-from langchain.text_splitter import CharacterTextSplitter 
-from langchain.llms import OpenAI
+from langchain.text_splitter import CharacterTextSplitter #from langchain.llms import OpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains.summarize import load_summarize_chain
 from langchain.document_loaders import UnstructuredURLLoader
 from dotenv import load_dotenv
+from lib.constants import TEMPERATURE
 
 chunk_size = 3000
 chunk_overlap = 200
@@ -38,7 +39,7 @@ def main():
         )
         texts = text_splitter.split_text(data[0].page_content)
         docs = [Document(page_content=text) for text in texts[:]]
-        llm = OpenAI(temperature=0)
+        llm = ChatGoogleGenerativeAI(model="gemini-pro",temperature=TEMPERATURE) #OpenAI(temperature=0)
         chain = load_summarize_chain(llm, chain_type="map_reduce")
         response = chain.run(docs)
         st.write(response)
